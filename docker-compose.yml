@@ -6,8 +6,8 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_PASSWORD=admin
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'postgres'
     ports:
       - "15432:5432"
   # APIサーバー設定
