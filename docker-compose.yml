@@ -23,3 +23,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  # WEBサーバー設定
+  web:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/frontend
+    command: sh -c "cd app && npm start"
+    environment:
+      - PORT=3001
+    ports:
+      - "3001:3001"
